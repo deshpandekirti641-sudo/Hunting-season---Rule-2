@@ -1,0 +1,130 @@
+{
+  "project": {
+    "name": "Neon Nexus City",
+    "description": "A mini GTA5-like game with aggressive action, thriller, and adventure gameplay",
+    "version": "1.0.0",
+    "type": "next.js-game",
+    "framework": "Next.js 16.0.0",
+    "runtime": "Node.js 20.x"
+  },
+  "structure": {
+    "root": {
+      "app": "Next.js app directory with pages and layouts",
+      "components": "Reusable React components",
+      "lib": "Utility functions and helpers",
+      "hooks": "Custom React hooks",
+      "public": "Static assets and images",
+      "scripts": "Deployment and build scripts"
+    },
+    "config": {
+      "package.json": "Project dependencies and scripts",
+      "next.config.mjs": "Next.js configuration",
+      "tsconfig.json": "TypeScript configuration",
+      "postcss.config.mjs": "PostCSS configuration for Tailwind CSS",
+      "tailwind.config.js": "Tailwind CSS configuration",
+      "components.json": "shadcn/ui configuration"
+    },
+    "deployment": {
+      ".github/workflows/deploy.yml": "GitHub Actions CI/CD workflow",
+      "vercel.json": "Vercel deployment configuration",
+      "DEPLOYMENT_GUIDE.md": "Complete deployment instructions",
+      "DEPLOYMENT_COMMANDS.md": "Quick reference deployment commands",
+      "CLEAN_DEPLOYMENT_CHECKLIST.md": "Pre-deployment verification checklist"
+    }
+  },
+  "dependencies": {
+    "core": ["next@16.0.0", "react@19.2.0", "react-dom@19.2.0", "typescript@5.9.3"],
+    "styling": ["tailwindcss@4.1.16", "postcss@8.5.6", "@tailwindcss/postcss"],
+    "3d-graphics": ["three@0.180.0", "cannon-es@0.20.0"],
+    "ui-components": ["lucide-react@0.454.0", "class-variance-authority@0.7.1", "clsx@2.1.1", "tailwind-merge@2.6.0"],
+    "utilities": ["@vercel/analytics@1.5.0", "tailwindcss-animate@1.0.7"]
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "features": {
+    "gameplay": [
+      "Player movement with sprinting and jumping",
+      "Multiple camera modes (first-person and third-person)",
+      "Vehicle system with driving mechanics",
+      "Combat system with 3 weapon types",
+      "NPC AI with patrol and chase behaviors",
+      "Mission system with multiple objective types",
+      "Wanted level system with police threat"
+    ],
+    "graphics": [
+      "3D cyberpunk map with neon aesthetics",
+      "Particle effects for explosions and impacts",
+      "Dynamic lighting and shadows",
+      "Real-time physics simulation",
+      "Screen shake effects for combat feedback"
+    ],
+    "audio": [
+      "Sound effects for weapons, vehicles, and impacts",
+      "Background music system",
+      "Event-triggered audio cues",
+      "Web Audio API for sound generation"
+    ],
+    "ui": [
+      "Comprehensive HUD with health and stamina bars",
+      "Real-time mission tracking",
+      "Game statistics panel",
+      "Minimap display",
+      "Threat level indicator"
+    ]
+  },
+  "deployment": {
+    "platforms": ["Vercel (recommended)", "GitHub Pages", "Self-hosted Node.js"],
+    "requirements": {
+      "node": ">=20.0.0",
+      "npm": ">=10.0.0",
+      "disk_space": "500MB minimum"
+    },
+    "environment_variables": {
+      "NEXT_PUBLIC_GAME_NAME": "Neon Nexus City",
+      "NEXT_PUBLIC_VERSION": "1.0.0"
+    }
+  },
+  "build": {
+    "output": ".next",
+    "cache": "node_modules",
+    "clean_before_build": true,
+    "commands": {
+      "linux_macos": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install && npm run build",
+      "windows": "rmdir /s /q node_modules & del /q package-lock.json & npm cache clean --force & npm install & npm run build"
+    }
+  },
+  "quality": {
+    "performance": {
+      "target_fcp": "1.5s",
+      "target_lcp": "2.5s",
+      "target_cls": "0.1"
+    },
+    "accessibility": "WCAG 2.1 Level AA",
+    "browser_support": ["Chrome 90+", "Firefox 88+", "Safari 14+", "Edge 90+"]
+  },
+  "troubleshooting": {
+    "build_fails": ["Run clean install script", "Delete .next folder", "Clear npm cache", "Verify Node.js version"],
+    "deployment_fails": [
+      "Check GitHub Actions logs",
+      "Verify Vercel environment variables",
+      "Ensure package.json in root directory",
+      "Run npm run build locally"
+    ],
+    "game_not_loading": [
+      "Check browser console for errors",
+      "Verify all dependencies installed",
+      "Restart development server",
+      "Clear browser cache"
+    ]
+  },
+  "metadata": {
+    "created": "2025-10-27",
+    "last_updated": "2025-10-27",
+    "status": "production-ready",
+    "license": "MIT"
+  }
+}
