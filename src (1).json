@@ -1,0 +1,257 @@
+{
+  "project": {
+    "name": "Neon Nexus City",
+    "description": "A mini GTA5-like game with aggressive action, thriller, and adventure gameplay",
+    "version": "1.0.0",
+    "type": "next.js-game",
+    "framework": "Next.js 16.0.0",
+    "runtime": "Node.js 20.x"
+  },
+  "serviceRoot": {
+    "path": "/opt/project/render/src",
+    "description": "Service root directory for deployment on Render, Railway, and similar platforms",
+    "structure": {
+      "app": {
+        "path": "app/",
+        "description": "Next.js app directory with game pages and layouts",
+        "files": ["page.tsx", "layout.tsx", "globals.css"]
+      },
+      "components": {
+        "path": "components/",
+        "description": "Reusable React components for game UI",
+        "files": ["game-hud.tsx", "game-menu.tsx"]
+      },
+      "lib": {
+        "path": "lib/",
+        "description": "Utility functions and helper modules",
+        "files": ["utils.ts"]
+      },
+      "hooks": {
+        "path": "hooks/",
+        "description": "Custom React hooks",
+        "files": ["use-mobile.ts", "use-toast.ts"]
+      },
+      "public": {
+        "path": "public/",
+        "description": "Static assets, images, and media files",
+        "files": ["placeholder.svg"]
+      },
+      "scripts": {
+        "path": "scripts/",
+        "description": "Build and deployment automation scripts",
+        "files": ["clean-install.sh", "clean-install.bat"]
+      }
+    },
+    "configuration": {
+      "package.json": {
+        "path": "package.json",
+        "location": "root",
+        "description": "Project dependencies and npm scripts",
+        "required": true
+      },
+      "src/package.json": {
+        "path": "src/package.json",
+        "location": "src directory",
+        "description": "Alternative package.json for src-based deployments",
+        "required": false
+      },
+      "next.config.mjs": {
+        "path": "next.config.mjs",
+        "location": "root",
+        "description": "Next.js build and runtime configuration"
+      },
+      "tsconfig.json": {
+        "path": "tsconfig.json",
+        "location": "root",
+        "description": "TypeScript compiler configuration"
+      },
+      "postcss.config.mjs": {
+        "path": "postcss.config.mjs",
+        "location": "root",
+        "description": "PostCSS configuration for Tailwind CSS v4"
+      },
+      "tailwind.config.js": {
+        "path": "tailwind.config.js",
+        "location": "root",
+        "description": "Tailwind CSS design system configuration"
+      }
+    },
+    "deployment": {
+      "platforms": {
+        "vercel": {
+          "path": "/opt/project/render/src",
+          "buildCommand": "npm run build",
+          "startCommand": "npm start",
+          "environment": "Node.js 20.x"
+        },
+        "render": {
+          "path": "/opt/project/render/src",
+          "buildCommand": "npm install && npm run build",
+          "startCommand": "npm start",
+          "environment": "Node.js 20.x"
+        },
+        "railway": {
+          "path": "/opt/project/render/src",
+          "buildCommand": "npm run build",
+          "startCommand": "npm start",
+          "environment": "Node.js 20.x"
+        },
+        "heroku": {
+          "path": "/app",
+          "buildCommand": "npm run build",
+          "startCommand": "npm start",
+          "environment": "Node.js 20.x"
+        }
+      },
+      "environment_variables": {
+        "NODE_ENV": "production",
+        "NEXT_PUBLIC_GAME_NAME": "Neon Nexus City",
+        "NEXT_PUBLIC_VERSION": "1.0.0",
+        "NEXT_PUBLIC_APP_NAME": "Neon Nexus City",
+        "NEXT_PUBLIC_APP_VERSION": "1.0.0"
+      }
+    },
+    "buildProcess": {
+      "steps": [
+        "Clean install: rm -rf node_modules package-lock.json",
+        "Clear cache: npm cache clean --force",
+        "Install dependencies: npm install",
+        "Build application: npm run build",
+        "Start server: npm start"
+      ],
+      "cleanInstallLinuxMacOS": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install && npm cache clean --force && node -v && npm -v",
+      "cleanInstallWindows": "rmdir /s /q node_modules & del /q package-lock.json & npm cache clean --force & npm install & npm cache clean --force & node -v & npm -v",
+      "verification": {
+        "nodeVersion": ">=20.0.0",
+        "npmVersion": ">=10.0.0",
+        "diskSpace": "500MB minimum",
+        "buildOutput": ".next directory created successfully"
+      }
+    },
+    "fileStructure": {
+      "root": {
+        "app/": "Next.js app directory",
+        "components/": "React components",
+        "lib/": "Utility functions",
+        "hooks/": "Custom hooks",
+        "public/": "Static assets",
+        "scripts/": "Build scripts",
+        ".github/": "GitHub Actions workflows",
+        "package.json": "Dependencies and scripts",
+        "next.config.mjs": "Next.js configuration",
+        "tsconfig.json": "TypeScript configuration",
+        "postcss.config.mjs": "PostCSS configuration",
+        "src.json": "Service root configuration",
+        "src/": "Alternative source directory"
+      },
+      "src": {
+        "package.json": "Alternative package.json for src deployments",
+        "tsconfig.json": "TypeScript configuration for src",
+        ".env.example": "Environment variables template",
+        "README.md": "Deployment documentation"
+      }
+    },
+    "requirements": {
+      "runtime": "Node.js 20.x or higher",
+      "packageManager": "npm 10.x or higher",
+      "diskSpace": "500MB minimum",
+      "memory": "512MB minimum",
+      "bandwidth": "Unlimited recommended"
+    },
+    "deployment": {
+      "platforms": ["Vercel (recommended)", "GitHub Pages", "Self-hosted Node.js"],
+      "requirements": {
+        "node": ">=20.0.0",
+        "npm": ">=10.0.0",
+        "disk_space": "500MB minimum"
+      },
+      "environment_variables": {
+        "NEXT_PUBLIC_GAME_NAME": "Neon Nexus City",
+        "NEXT_PUBLIC_VERSION": "1.0.0"
+      }
+    },
+    "build": {
+      "output": ".next",
+      "cache": "node_modules",
+      "clean_before_build": true,
+      "commands": {
+        "linux_macos": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install && npm run build",
+        "windows": "rmdir /s /q node_modules & del /q package-lock.json & npm cache clean --force & npm install & npm run build"
+      }
+    },
+    "quality": {
+      "performance": {
+        "target_fcp": "1.5s",
+        "target_lcp": "2.5s",
+        "target_cls": "0.1"
+      },
+      "accessibility": "WCAG 2.1 Level AA",
+      "browser_support": ["Chrome 90+", "Firefox 88+", "Safari 14+", "Edge 90+"]
+    },
+    "troubleshooting": {
+      "build_fails": ["Run clean install script", "Delete .next folder", "Clear npm cache", "Verify Node.js version"],
+      "deployment_fails": [
+        "Check GitHub Actions logs",
+        "Verify Vercel environment variables",
+        "Ensure package.json in root directory",
+        "Run npm run build locally"
+      ],
+      "game_not_loading": [
+        "Check browser console for errors",
+        "Verify all dependencies installed",
+        "Restart development server",
+        "Clear browser cache"
+      ]
+    },
+    "metadata": {
+      "created": "2025-10-27",
+      "last_updated": "2025-10-27",
+      "status": "production-ready",
+      "license": "MIT"
+    }
+  },
+  "dependencies": {
+    "core": ["next@16.0.0", "react@19.2.0", "react-dom@19.2.0", "typescript@5.9.3"],
+    "styling": ["tailwindcss@4.1.16", "postcss@8.5.6", "@tailwindcss/postcss"],
+    "3d-graphics": ["three@0.180.0", "cannon-es@0.20.0"],
+    "ui-components": ["lucide-react@0.454.0", "class-variance-authority@0.7.1", "clsx@2.1.1", "tailwind-merge@2.6.0"],
+    "utilities": ["@vercel/analytics@1.5.0", "tailwindcss-animate@1.0.7"]
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "features": {
+    "gameplay": [
+      "Player movement with sprinting and jumping",
+      "Multiple camera modes (first-person and third-person)",
+      "Vehicle system with driving mechanics",
+      "Combat system with 3 weapon types",
+      "NPC AI with patrol and chase behaviors",
+      "Mission system with multiple objective types",
+      "Wanted level system with police threat"
+    ],
+    "graphics": [
+      "3D cyberpunk map with neon aesthetics",
+      "Particle effects for explosions and impacts",
+      "Dynamic lighting and shadows",
+      "Real-time physics simulation",
+      "Screen shake effects for combat feedback"
+    ],
+    "audio": [
+      "Sound effects for weapons, vehicles, and impacts",
+      "Background music system",
+      "Event-triggered audio cues",
+      "Web Audio API for sound generation"
+    ],
+    "ui": [
+      "Comprehensive HUD with health and stamina bars",
+      "Real-time mission tracking",
+      "Game statistics panel",
+      "Minimap display",
+      "Threat level indicator"
+    ]
+  }
+}
