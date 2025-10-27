@@ -1,0 +1,206 @@
+{
+  "projectName": "Neon Nexus City - Mini GTA5 Clone",
+  "projectVersion": "1.0.0",
+  "projectDescription": "A futuristic cyberpunk open-world game with aggressive action, combat, vehicles, NPCs, and missions",
+  "projectType": "Next.js 16 + Three.js Game",
+  "author": "v0 Game Studio",
+  "license": "MIT",
+
+  "serviceRoot": {
+    "local": "./",
+    "development": "/opt/project/dev/src",
+    "staging": "/opt/project/staging/src",
+    "production": "/opt/project/render/src",
+    "platforms": {
+      "vercel": "/opt/vercel/project/src",
+      "render": "/opt/project/render/src",
+      "railway": "/app/src",
+      "heroku": "/app/src",
+      "netlify": "/opt/build/repo/src"
+    }
+  },
+
+  "commands": {
+    "development": {
+      "install": "npm install",
+      "clean": "rm -rf node_modules package-lock.json && npm cache clean --force",
+      "cleanWindows": "rmdir /s /q node_modules && del /q package-lock.json && npm cache clean --force",
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint",
+      "verify": "node -v && npm -v"
+    },
+    "production": {
+      "cleanInstall": "npm install --production",
+      "build": "npm run build",
+      "start": "npm start",
+      "preStart": "npm cache clean --force && npm install"
+    },
+    "deployment": {
+      "vercel": "vercel --prod",
+      "render": "render deploy",
+      "railway": "railway up",
+      "heroku": "git push heroku main",
+      "netlify": "netlify deploy --prod"
+    },
+    "cleanup": {
+      "linux": "rm -rf node_modules package-lock.json .next && npm cache clean --force",
+      "macos": "rm -rf node_modules package-lock.json .next && npm cache clean --force",
+      "windows": "rmdir /s /q node_modules .next && del /q package-lock.json && npm cache clean --force"
+    }
+  },
+
+  "packageJson": {
+    "location": "./package.json",
+    "srcLocation": "./src/package.json",
+    "name": "neon-nexus-city",
+    "version": "1.0.0",
+    "description": "Futuristic cyberpunk open-world game",
+    "main": "next.config.mjs",
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint"
+    },
+    "dependencies": {
+      "next": "^16.0.0",
+      "react": "^19.2.0",
+      "react-dom": "^19.2.0",
+      "three": "^0.180.0",
+      "cannon-es": "^0.20.0",
+      "tailwindcss": "^4.1.16",
+      "lucide-react": "^0.454.0"
+    },
+    "devDependencies": {
+      "@types/node": "^22.18.12",
+      "@types/react": "^19.2.2",
+      "@types/react-dom": "^19.2.2",
+      "typescript": "^5.9.3",
+      "postcss": "^8.5.6",
+      "@tailwindcss/postcss": "^4.1.16"
+    }
+  },
+
+  "buildConfiguration": {
+    "framework": "Next.js 16",
+    "runtime": "Node.js 20.x",
+    "packageManager": "npm 10.x",
+    "buildCommand": "npm run build",
+    "startCommand": "npm start",
+    "devCommand": "npm run dev",
+    "outputDirectory": ".next",
+    "publicDirectory": "public"
+  },
+
+  "deploymentSteps": {
+    "step1": "Clean install: npm install",
+    "step2": "Build: npm run build",
+    "step3": "Verify: npm start (local test)",
+    "step4": "Deploy: vercel --prod (or platform-specific command)",
+    "step5": "Verify deployment at live URL"
+  },
+
+  "environmentVariables": {
+    "required": ["NODE_ENV=production", "NEXT_PUBLIC_APP_NAME=Neon Nexus City", "NEXT_PUBLIC_APP_VERSION=1.0.0"],
+    "optional": ["VERCEL_URL", "VERCEL_ENV"]
+  },
+
+  "fileStructure": {
+    "root": {
+      "app": "Next.js app directory with pages and layouts",
+      "components": "React components (HUD, Menu, etc.)",
+      "public": "Static assets and images",
+      "lib": "Utility functions and helpers",
+      "hooks": "Custom React hooks",
+      "styles": "Global CSS and Tailwind configuration",
+      "scripts": "Deployment and build scripts"
+    },
+    "src": {
+      "app": "Source app directory (alternative structure)",
+      "components": "Source components",
+      "package.json": "Src-level package configuration",
+      "tsconfig.json": "TypeScript configuration for src"
+    }
+  },
+
+  "deploymentPlatforms": {
+    "vercel": {
+      "command": "vercel --prod",
+      "environment": "production",
+      "region": "auto",
+      "buildCommand": "npm run build",
+      "startCommand": "npm start"
+    },
+    "render": {
+      "command": "render deploy",
+      "environment": "production",
+      "buildCommand": "npm install && npm run build",
+      "startCommand": "npm start",
+      "serviceRoot": "/opt/project/render/src"
+    },
+    "railway": {
+      "command": "railway up",
+      "environment": "production",
+      "buildCommand": "npm install && npm run build",
+      "startCommand": "npm start",
+      "serviceRoot": "/app/src"
+    },
+    "heroku": {
+      "command": "git push heroku main",
+      "environment": "production",
+      "buildCommand": "npm install && npm run build",
+      "startCommand": "npm start",
+      "procfile": "web: npm start"
+    }
+  },
+
+  "qualityChecks": {
+    "preDeployment": [
+      "npm install completes without errors",
+      "npm run build completes successfully",
+      "npm start runs without errors",
+      "Game loads at http://localhost:3000",
+      "All features work (movement, combat, vehicles)",
+      "No console errors in browser"
+    ],
+    "postDeployment": [
+      "Live URL is accessible",
+      "Game loads on live URL",
+      "All features work on production",
+      "No 404 or 500 errors",
+      "Performance is acceptable",
+      "Mobile responsiveness works"
+    ]
+  },
+
+  "troubleshooting": {
+    "buildFails": [
+      "Run: npm cache clean --force",
+      "Run: rm -rf node_modules package-lock.json",
+      "Run: npm install",
+      "Run: npm run build"
+    ],
+    "deploymentFails": [
+      "Check GitHub Actions logs",
+      "Verify environment variables are set",
+      "Ensure package.json is in root directory",
+      "Run npm run build locally to verify"
+    ],
+    "gameDoesntLoad": [
+      "Check browser console for errors",
+      "Verify all dependencies installed",
+      "Restart dev server",
+      "Clear browser cache"
+    ]
+  },
+
+  "metadata": {
+    "createdDate": "2025-10-27",
+    "lastUpdated": "2025-10-27",
+    "status": "production-ready",
+    "maintenanceMode": false,
+    "supportedBrowsers": ["Chrome 90+", "Firefox 88+", "Safari 14+", "Edge 90+"]
+  }
+}
