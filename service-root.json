@@ -1,0 +1,106 @@
+{
+  "serviceRoot": {
+    "name": "Neon Nexus City - Service Root Directory",
+    "version": "1.0.0",
+    "description": "Service root configuration for deployment on multiple platforms",
+    "paths": {
+      "local": "/",
+      "development": "/opt/project/dev/src",
+      "staging": "/opt/project/staging/src",
+      "production": "/opt/project/render/src",
+      "vercel": "/vercel/path",
+      "railway": "/app",
+      "render": "/opt/project/render/src",
+      "heroku": "/app"
+    },
+    "directories": {
+      "root": {
+        "path": "/",
+        "description": "Project root directory",
+        "files": [
+          "package.json",
+          "tsconfig.json",
+          "next.config.mjs",
+          "postcss.config.mjs",
+          "project.json",
+          "src.json",
+          "root.json",
+          "README.md"
+        ]
+      },
+      "app": {
+        "path": "/app",
+        "description": "Next.js app directory",
+        "files": ["page.tsx", "layout.tsx", "globals.css"]
+      },
+      "components": {
+        "path": "/components",
+        "description": "React components",
+        "files": ["game-hud.tsx", "game-menu.tsx"]
+      },
+      "public": {
+        "path": "/public",
+        "description": "Static assets",
+        "subdirectories": ["html"]
+      },
+      "src": {
+        "path": "/src",
+        "description": "Source directory for deployment",
+        "files": ["package.json", "tsconfig.json", ".env.example", "README.md"]
+      },
+      "scripts": {
+        "path": "/scripts",
+        "description": "Utility scripts",
+        "files": ["clean-install.sh", "clean-install.bat"]
+      },
+      "github": {
+        "path": "/.github/workflows",
+        "description": "GitHub Actions workflows",
+        "files": ["deploy.yml"]
+      }
+    },
+    "platforms": {
+      "vercel": {
+        "name": "Vercel",
+        "buildCommand": "npm run build",
+        "startCommand": "npm start",
+        "environment": "production",
+        "region": "auto"
+      },
+      "render": {
+        "name": "Render",
+        "buildCommand": "npm install && npm run build",
+        "startCommand": "npm start",
+        "environment": "production",
+        "region": "oregon"
+      },
+      "railway": {
+        "name": "Railway",
+        "buildCommand": "npm run build",
+        "startCommand": "npm start",
+        "environment": "production",
+        "region": "us-west"
+      },
+      "heroku": {
+        "name": "Heroku",
+        "buildCommand": "npm run build",
+        "startCommand": "npm start",
+        "environment": "production",
+        "procfile": "web: npm start"
+      }
+    },
+    "requirements": {
+      "nodejs": ">=20.0.0",
+      "npm": ">=10.0.0",
+      "disk": "500MB",
+      "memory": "512MB"
+    },
+    "deploymentSteps": [
+      "Clean install dependencies",
+      "Build project",
+      "Run tests",
+      "Deploy to platform",
+      "Verify deployment"
+    ]
+  }
+}

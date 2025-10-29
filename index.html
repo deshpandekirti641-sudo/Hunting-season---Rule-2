@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Nexus City - Mini GTA5 Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid #00ffff;
+            padding-bottom: 30px;
+        }
+        h1 {
+            font-size: 3em;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #ff00ff;
+            font-size: 1.2em;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: rgba(0, 255, 255, 0.05);
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 20px #00ffff;
+            transform: translateY(-5px);
+        }
+        .card h2 {
+            color: #00ffff;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .card p {
+            color: #b0b0b0;
+            margin-bottom: 15px;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #00ffff;
+        }
+        .features {
+            background: rgba(255, 0, 255, 0.05);
+            border: 2px solid #ff00ff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        .features h2 {
+            color: #ff00ff;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .features ul {
+            list-style: none;
+            columns: 2;
+            gap: 20px;
+        }
+        .features li {
+            color: #b0b0b0;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .features li:before {
+            content: "▸";
+            color: #ff00ff;
+            position: absolute;
+            left: 0;
+        }
+        footer {
+            text-align: center;
+            border-top: 2px solid #00ffff;
+            padding-top: 20px;
+            color: #808080;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 NEON NEXUS CITY</h1>
+            <p class="subtitle">A Futuristic Mini GTA5 Experience</p>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <h2>🚀 Quick Start</h2>
+                <p>Get the game running in minutes with our simple setup process.</p>
+                <a href="deployment.html" class="btn">View Setup Guide</a>
+            </div>
+            <div class="card">
+                <h2>📚 Documentation</h2>
+                <p>Complete documentation of all features, controls, and gameplay mechanics.</p>
+                <a href="documentation.html" class="btn">Read Docs</a>
+            </div>
+            <div class="card">
+                <h2>⚙️ Commands</h2>
+                <p>All build, deployment, and cleanup commands for every platform.</p>
+                <a href="commands.html" class="btn">View Commands</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>Game Features</h2>
+            <ul>
+                <li>Aggressive NPC AI with combat behaviors</li>
+                <li>Multiple weapon types (Pistol, Rifle, Shotgun)</li>
+                <li>Drivable vehicles with realistic physics</li>
+                <li>Dynamic mission system</li>
+                <li>Wanted level and threat system</li>
+                <li>Particle effects and visual feedback</li>
+                <li>Sound effects and background music</li>
+                <li>Real-time HUD with stats tracking</li>
+                <li>Cyberpunk neon aesthetic</li>
+                <li>Combo damage multiplier system</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Neon Nexus City - Mini GTA5 Clone | Powered by Next.js & Three.js</p>
+        </footer>
+    </div>
+</body>
+</html>

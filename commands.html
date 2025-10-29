@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commands Reference - Neon Nexus City</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #00ffff;
+            padding-bottom: 20px;
+        }
+        h1 {
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+        }
+        h2 {
+            color: #ff00ff;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+        .command-group {
+            background: rgba(0, 255, 255, 0.05);
+            border-left: 4px solid #00ffff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .command {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #00ff00;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            overflow-x: auto;
+        }
+        .description {
+            color: #b0b0b0;
+            margin-top: 5px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #00ffff;
+            border-radius: 5px;
+            color: #00ffff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
+        <header>
+            <h1>Commands Reference</h1>
+            <p>All build, deployment, and cleanup commands</p>
+        </header>
+
+        <div class="command-group">
+            <h2>Development Commands</h2>
+            
+            <div class="command">npm run dev</div>
+            <div class="description">Start development server at http://localhost:3000</div>
+            
+            <div class="command">npm run build</div>
+            <div class="description">Build project for production</div>
+            
+            <div class="command">npm start</div>
+            <div class="description">Start production server</div>
+            
+            <div class="command">npm run lint</div>
+            <div class="description">Run ESLint to check code quality</div>
+        </div>
+
+        <div class="command-group">
+            <h2>Clean Installation (Linux/macOS)</h2>
+            
+            <div class="command">rm -rf node_modules package-lock.json</div>
+            <div class="description">Remove node_modules and lock file</div>
+            
+            <div class="command">npm cache clean --force</div>
+            <div class="description">Clear npm cache completely</div>
+            
+            <div class="command">npm install</div>
+            <div class="description">Fresh install all dependencies</div>
+            
+            <div class="command">node -v && npm -v</div>
+            <div class="description">Verify Node.js and npm versions</div>
+        </div>
+
+        <div class="command-group">
+            <h2>Clean Installation (Windows)</h2>
+            
+            <div class="command">del /s /q node_modules package-lock.json</div>
+            <div class="description">Remove node_modules and lock file</div>
+            
+            <div class="command">npm cache clean --force</div>
+            <div class="description">Clear npm cache completely</div>
+            
+            <div class="command">npm install</div>
+            <div class="description">Fresh install all dependencies</div>
+            
+            <div class="command">node -v && npm -v</div>
+            <div class="description">Verify Node.js and npm versions</div>
+        </div>
+
+        <div class="command-group">
+            <h2>Deployment Commands</h2>
+            
+            <div class="command">vercel --prod</div>
+            <div class="description">Deploy to Vercel production</div>
+            
+            <div class="command">vercel ls</div>
+            <div class="description">List all Vercel deployments</div>
+            
+            <div class="command">git push origin main</div>
+            <div class="description">Push to GitHub (triggers GitHub Actions)</div>
+        </div>
+
+        <div class="command-group">
+            <h2>Troubleshooting Commands</h2>
+            
+            <div class="command">rm -rf .next</div>
+            <div class="description">Remove Next.js build cache</div>
+            
+            <div class="command">npm list</div>
+            <div class="description">List all installed dependencies</div>
+            
+            <div class="command">npm audit fix</div>
+            <div class="description">Fix security vulnerabilities</div>
+            
+            <div class="command">npm update</div>
+            <div class="description">Update all dependencies to latest versions</div>
+        </div>
+    </div>
+</body>
+</html>
